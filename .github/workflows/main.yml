@@ -7,6 +7,16 @@ permissions:
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+        Identity:
+          description: 'identity of quarantined msg'
+          required: true
+  # curl -L \
+  # -X POST \
+  # -H "Accept: application/vnd.github+json" \
+  # -H "Authorization: Bearer <YOUR-TOKEN>" \
+  # https://api.github.com/repos/anna-mation/actionsPO/actions/workflows/test/dispatches \
+  # -d '{"ref":"main","inputs":{"Identity":"Anna"}}'
 
 jobs:
   deploy:
@@ -37,7 +47,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run Powershell Script
         run: |
-          .\scripts\hello.ps1
+          .\scripts\hello.ps1 $Identity
         # env:
           # INPUT_BLOCK_TYPE: ${{ inputs.block_type }}
           # INPUT_BLOCK_ENTRY: ${{ inputs.block_entries }}

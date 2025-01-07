@@ -1,1 +1,5 @@
-Write-Output "Hello, World!"
+param (
+    [Parameter(Mandatory)]
+    [string]$Identity
+)
+Write-Host "Hello, $Identity!"
