@@ -9,14 +9,8 @@ on:
   workflow_dispatch:
     inputs:
         Identity:
-          description: 'identity of quarantined msg'
+          description: 'identity of quarantined message'
           required: true
-  # curl -L \
-  # -X POST \
-  # -H "Accept: application/vnd.github+json" \
-  # -H "Authorization: Bearer <YOUR-TOKEN>" \
-  # https://api.github.com/repos/anna-mation/actionsPO/actions/workflows/test/dispatches \
-  # -d '{"ref":"main","inputs":{"Identity":"Anna"}}'
 
 jobs:
   deploy:
