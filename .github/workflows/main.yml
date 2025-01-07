@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run Powershell Script
         run: |
-          .\hello.ps1
+          .\scripts\hello.ps1
         # env:
           # INPUT_BLOCK_TYPE: ${{ inputs.block_type }}
           # INPUT_BLOCK_ENTRY: ${{ inputs.block_entries }}
