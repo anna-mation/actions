@@ -37,11 +37,10 @@ jobs:
       #       exit 1
       #     fi
       #     echo "Access Token Length: ${#AZURE_ACCESS_TOKEN}"
+      - name: List directory contents
+        run: ls ./scripts
+
       - name: Run Powershell Script
-        run: |
-          .\scripts\hello.ps1 ${{ github.event.inputs.Identity }}
-        # env:
-          # INPUT_BLOCK_TYPE: ${{ inputs.block_type }}
-          # INPUT_BLOCK_ENTRY: ${{ inputs.block_entries }}
+        run: .\scripts\hello.ps1 ${{ github.event.inputs.Identity }}
         shell: pwsh
         
