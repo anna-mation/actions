@@ -38,7 +38,7 @@ jobs:
       #     fi
       #     echo "Access Token Length: ${#AZURE_ACCESS_TOKEN}"
       - name: List directory contents
-        run: ls ./scripts
+        run: ls .\scripts
 
       - name: Run Powershell Script
         run: .\scripts\hello.ps1 ${{ github.event.inputs.Identity }}
