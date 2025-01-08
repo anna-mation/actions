@@ -37,11 +37,9 @@ jobs:
       #       exit 1
       #     fi
       #     echo "Access Token Length: ${#AZURE_ACCESS_TOKEN}"
-          
-      - uses: actions/checkout@v4
       - name: Run Powershell Script
         run: |
-          .\scripts\hello.ps1 $Identity
+          .\scripts\hello.ps1 ${{ github.event.inputs.Identity }}
         # env:
           # INPUT_BLOCK_TYPE: ${{ inputs.block_type }}
           # INPUT_BLOCK_ENTRY: ${{ inputs.block_entries }}
