@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
         Identity:
-          description: 'identity of quarantined message'
+          description: 'Identity of quarantined message'
           required: true
 
 jobs:

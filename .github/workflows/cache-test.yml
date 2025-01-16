@@ -1,0 +1,31 @@
+
+name: SNOW-WF-ReleaseQuarantineEmails
+
+permissions:
+  id-token: write
+  contents: read
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:       
+
+      - uses: actions/checkout@v4
+
+      - name: Setup PowerShell module cache
+        id: cacher
+        uses: actions/cache@v3
+        with:
+            path: "~/.local/share/powershell/Modules"
+            key: ${{ runner.os }}-cache-ps-package
+      
+      - name: Install required PowerShell modules
+        if: steps.cacher.outputs.cache-hit != 'true'
+        shell: pwsh
+        run: |
+            Set-PSRepository PSGallery -InstallationPolicy Trusted
+            Install-Package -Name ExchangeOnlineManagement -Source PSGallery -Force
